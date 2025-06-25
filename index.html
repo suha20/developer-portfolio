@@ -1,14 +1,173 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anindita suha portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anindita Suha | Software Engineer Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Welcome To</h1>
-    <h1><span>Peter parker</span>World</h1>
-    
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#tech">Tech Stack</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <h1>hey there, I’m <span>Anindita Suha</span> 👋</h1>
+    <p>Final-year Software Engineering student building intelligent systems for finance, NLP, and distributed computing.</p>
+    <div class="hero-links">
+      <a href="Anindita_Suha_-_.pdf" target="_blank">resume</a>
+      <a href="https://github.com/suha20" target="_blank">github</a>
+      <a href="https://www.linkedin.com/in/anindita-suha-55a99824a" target="_blank">linkedin</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>about</h2>
+    <p>Final-year Software Engineering student with commercial development experience. Proficient in Python, Java, Kotlin, and solid object-oriented design. Delivered containerized microservices and data pipelines; built interactive front-ends with React/TypeScript.</p>
+    <p><strong>Education:</strong> BEng Software Engineering, University of Greenwich, London (2022–2025)</p>
+    <p><strong>Location:</strong> London, United Kingdom<br>
+    <strong>Email:</strong> <a href="mailto:aninditasuha17@gmail.com">aninditasuha17@gmail.com</a><br>
+    <strong>Phone:</strong> +44 7787035764</p>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section id="tech" class="tech-stack">
+    <h2>tech stack</h2>
+    <div class="stack-category">
+      <h3>Languages & Frameworks</h3>
+      <p>Python, Java, JavaScript/TypeScript, Kotlin, Scala, React, FastAPI, Node.js</p>
+    </div>
+    <div class="stack-category">
+      <h3>Data & Databases</h3>
+      <p>REST API design, PostgreSQL, pandas, NumPy</p>
+    </div>
+    <div class="stack-category">
+      <h3>Cloud & DevOps</h3>
+      <p>Docker, GitHub Codespaces, CI/CD pipelines</p>
+    </div>
+    <div class="stack-category">
+      <h3>Support & Tooling</h3>
+      <p>Sunrise ITSM, Incident Management, Linux & Windows Administration</p>
+    </div>
+    <div class="stack-category">
+      <h3>Methodologies</h3>
+      <p>Agile/Scrum, OOP, Microservices Architectures</p>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience">
+    <h2>experience</h2>
+    <div class="job">
+      <h3>Software Engineer</h3>
+      <div class="company">
+        <img src="logos/distributed-analytics.png" alt="Distributed Analytics logo" class="company-logo" />
+        <span class="company-name">Distributed Analytics</span>
+      </div>
+      <span class="job-dates">Oct 2024 – May 2025</span>
+      <ul>
+        <li>Built a React/TypeScript dashboard with Chart.js and FastAPI/Pydantic backend for sentiment & price-prediction.</li>
+        <li>Fine-tuned FinBERT and developed LSTM pipeline with TensorFlow/Keras for forecasting (80% directional accuracy).</li>
+        <li>Containerized the stack in Docker and leveraged GitHub Codespaces for consistent development env.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <h3>IT Support Engineer</h3>
+      <div class="company">
+        <img src="logos/greenwich.png" alt="University of Greenwich logo" class="company-logo" />
+        <span class="company-name">University of Greenwich</span>
+      </div>
+      <span class="job-dates">Oct 2024 – Present</span>
+      <ul>
+        <li>Resolved 95% of Sunrise ITSM tickets for 500+ users across Linux, Windows, and macOS.</li>
+        <li>Automated incident reporting, improving SLA compliance and reducing manual effort.</li>
+        <li>Configured network settings to maintain 99.9% uptime for critical research systems.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <h3>IT Systems Specialist</h3>
+      <div class="company">
+        <img src="logos/distributed-analytics.png" alt="University of Greenwich logo" class="company-logo" />
+        <span class="company-name">University of Greenwich</span>
+      </div>
+      <span class="job-dates">Oct 2023 – Jul 2024</span>
+      <ul>
+        <li>Provided Tier 1/2 support and troubleshooting in an ITIL-driven environment.</li>
+        <li>Wrote shell & Python scripts for health checks and automated patching, saving 5 hrs/week.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <h3>Digital Champion & Student Ambassador</h3>
+      <div class="company">
+        <img src="logos/greenwich.png" alt="University of Greenwich logo" class="company-logo" />
+        <span class="company-name">University of Greenwich</span>
+      </div>
+      <span class="job-dates">Nov 2022 – Nov 2024</span>
+      <ul>
+        <li>Led digital workshops for 300+ students, boosting engagement by 40%.</li>
+        <li>Managed CRM campaigns generating 150+ qualified leads for enrollment.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2>projects</h2>
+    <div class="projects-list">
+      <div class="project-item">
+        <h3>SentiTracker</h3>
+        <span>Nov 2024 – May 2025</span>
+        <p>Engineered a full-stack platform processing 1M+ daily records for financial sentiment analysis and price prediction.</p>
+        <p><strong>Stack:</strong> FastAPI, React, FinBERT, LSTM, Docker</p>
+        <div class="video-placeholder">Video demo placeholder</div>
+      </div>
+      <div class="project-item">
+        <h3>Lottery Number Generator</h3>
+        <span>Nov 2022 – Dec 2022</span>
+        <p>Created an AVR assembly program for the Atmega 8535 microcontroller to generate randomized lottery numbers.</p>
+        <p><strong>Stack:</strong> AVR Assembly, Atmega 8535</p>
+        <div class="video-placeholder">Video demo placeholder</div>
+      </div>
+      <div class="project-item">
+        <h3>CityMapper App</h3>
+        <span>Sep 2023 – Nov 2023</span>
+        <p>Implemented Dijkstra’s algorithm on a 270-station graph for London Underground route optimization.</p>
+        <p><strong>Stack:</strong> Python, NetworkX, Jupyter</p>
+        <div class="video-placeholder">Video demo placeholder</div>
+      </div>
+      <div class="project-item">
+        <h3>Housing & Survival Prediction App</h3>
+        <span>Feb 2025 – Mar 2025</span>
+        <p>Constructed ETL workflows and trained ensemble models achieving >85% accuracy on housing-price forecasts and survival-rate classification.</p>
+        <p><strong>Stack:</strong> pandas, NumPy, scikit-learn</p>
+        <div class="video-placeholder">Video demo placeholder</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>contact</h2>
+    <p>Feel free to reach out — I’d love to connect, collaborate, or just say hi 👋</p>
+    <p><a href="mailto:aninditasuha17@gmail.com">aninditasuha17@gmail.com</a></p>
+    <div class="contact-links">
+      <a href="https://github.com/suha20" target="_blank">github</a>
+      <a href="https://www.linkedin.com/in/anindita-suha-55a99824a" target="_blank">linkedin</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Anindita Suha | Software Engineering Portfolio</p>
+  </footer>
 </body>
 </html>
