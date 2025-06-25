@@ -1,3 +1,264 @@
-span{
-    color: yellow;
+/* Base Reset & Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Navigation */
+.main-nav {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+}
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+.main-nav li:first-child {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.main-nav a {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  text-transform: lowercase;
+  border: 1px solid #1a1a1a;
+  border-radius: 9999px;
+  color: #1a1a1a;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.main-nav a:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+.main-nav a.active {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+.main-nav a.playground {
+  background-color: #ff4c4c;
+  border-color: #ff4c4c;
+  color: #ffffff;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 24px;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+.hero h1 span {
+  color: #ff4c4c;
+}
+.hero p {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #555555;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-links {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.hero-links a {
+  font-size: 0.875rem;
+  text-transform: lowercase;
+  color: #0066cc;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.hero-links a:hover {
+  border-color: #0066cc;
+}
+
+/* Section Headings */
+section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  text-transform: lowercase;
+}
+
+/* About Section */
+.about {
+  padding: 60px 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.about p {
+  margin-bottom: 12px;
+  color: #333333;
+}
+
+/* Tech Stack */
+.tech-stack {
+  padding: 60px 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.stack-category {
+  margin-bottom: 24px;
+}
+.stack-category h3 {
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+}
+.stack-category p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #444444;
+}
+.stack-category p::before {
+  content: '';
+}
+
+/* Experience Section */
+.experience {
+  /*padding: 60px 24px;*/
+  padding: 60px 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.experience .job {
+  margin-bottom: 40px;
+  
+}
+.experience h3 {
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+  
+}
+.experience span {
+  font-size: 0.875rem;
+  color: #777777;
+}
+.experience ul {
+  margin-top: 12px;
+  list-style: disc;
+  margin-left: 20px;
+  
+  color: #333333;
+}
+
+.company {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 8px 0;
+    }
+    .company-logo {
+      width: 40px;
+      height: auto;
+      object-fit: contain;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Projects Section */
+.projects {
+  padding: 60px 24px;
+  background-color: #fafafa;
+  max-width: 800px;
+  margin: 0 auto;
+  
+}
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.project-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px;
+}
+.project-item h3 {
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+}
+.project-item span {
+  display: block;
+  font-size: 0.875rem;
+  color: #777777;
+  margin-bottom: 16px;
+}
+.project-item p {
+  margin-bottom: 12px;
+  color: #333333;
+}
+.video-placeholder {
+  width: 100%;
+  height: 180px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777777;
+  font-size: 0.875rem;
+}
+
+/* Contact Section */
+.contact {
+  padding: 60px 24px;
+  text-align: center;
+}
+.contact a {
+  color: #0066cc;
+}
+.contact-links {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.875rem;
+  color: #999999;
 }
