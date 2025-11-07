@@ -181,6 +181,99 @@ section h2 {
     }
 
 
+    /* ===== Enhanced LinkedIn-Style Experience Layout ===== */
+
+.job {
+  border-bottom: 1px solid #e6e6e6;
+  padding: 24px 0;
+}
+
+.job:last-child {
+  border-bottom: none;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.job-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.company-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 50%; /* optional - makes it circular */
+}
+
+.company-name {
+  font-weight: 600;
+  color: #222;
+}
+
+.job-dates {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.job-summary {
+  margin: 10px 0;
+  color: #333;
+}
+
+.job ul {
+  margin-left: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tech-tags span {
+  background-color: #f4f4f4;
+  color: #333;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tech-tags span:hover {
+  background-color: #ff4c4c;
+  color: white;
+}
+
+/* Responsive fix for mobile */
+@media (max-width: 700px) {
+  .job-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .job-dates {
+    margin-top: 4px;
+  }
+}
+
+
+
 
 
 
