@@ -113,7 +113,7 @@ section h2 {
 
 /* Tech Stack */
 .tech-stack {
-  padding: 60px 24px;
+  padding: 30px 24px;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -121,7 +121,7 @@ section h2 {
   margin-bottom: 24px;
 }
 .stack-category h3 {
-  font-size: 1.125rem;
+  font-size: 1.0rem;
   margin-bottom: 8px;
 }
 .stack-category p {
@@ -185,11 +185,13 @@ section h2 {
 
 .job {
   border-bottom: 1px solid #e6e6e6;
-  padding: 24px 0;
+  padding: 1px 0;
+  
 }
 
 .job:last-child {
   border-bottom: none;
+  margin-bottom: 0;
 }
 
 .job-header {
@@ -239,27 +241,7 @@ section h2 {
   line-height: 1.6;
 }
 
-.tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
 
-.tech-tags span {
-  background-color: #f4f4f4;
-  color: #333;
-  font-size: 0.8rem;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.tech-tags span:hover {
-  background-color: #ff4c4c;
-  color: white;
-}
 
 /* Responsive fix for mobile */
 @media (max-width: 700px) {
@@ -271,6 +253,183 @@ section h2 {
     margin-top: 4px;
   }
 }
+
+
+/* DROPDOWN ADDED */
+
+/* Hide native triangle */
+.job details summary::-webkit-details-marker {
+  display: none;
+}
+.job details summary::marker {
+  display: none;
+}
+
+/* Dropdown base */
+.job details {
+  border-bottom: 1px solid #e6e6e6;
+  padding: 20px 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.job details[open] {
+  background-color: #fafafa;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.job details summary {
+  list-style: none;
+  outline: none;
+}
+
+.job details summary:hover {
+  background-color: #f7f7f7;
+  border-radius: 6px;
+}
+
+.job-summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.job-summary-header h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.job-summary-line {
+  color: #333;
+  font-size: 0.95rem;
+  margin-top: 6px;
+}
+
+
+
+.job-details ul {
+  margin-left: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Tech tags remain visible */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.tech-tags span {
+  background-color: #f4f4f4;
+  color: #333;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.tech-tags span:hover {
+  background-color: #ff4c4c;
+  color: #fff;
+}
+
+/* Simple open/close animation */
+.job details[open] .job-details {
+  animation: expand 0.3s ease-in-out;
+}
+@keyframes expand {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional dropdown arrow */
+.job details summary::after {
+  content: '▾';
+  font-size: 1rem;
+  color: #888;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+.job details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+
+
+
+/* ===== Controlled Dropdown Arrow Toggle (Arrow beside Role Title) ===== */
+
+.job-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.job-title-row h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.toggle-details {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #888;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.toggle-details:hover {
+  color: #ff4c4c;
+}
+
+.toggle-details.open {
+  transform: rotate(180deg);
+  color: #ff4c4c;
+}
+
+.job-details {
+  display: none;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #ddd;
+}
+
+.job-details.open {
+  display: block;
+  animation: expandJob 0.3s ease-in-out;
+}
+
+@keyframes expandJob {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
 
 
 
@@ -432,4 +591,3 @@ footer {
   font-size: 0.875rem;
   color: #999999;
 }
-
