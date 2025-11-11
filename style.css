@@ -15,24 +15,57 @@ a {
   cursor: pointer;
 }
 
-/* Navigation */
+
+
+/* ===== Fixed Centered Page Wrapper ===== */
+.content-wrapper {
+  width: 880px;          /* fixed width for desktop */
+  max-width: 880px;      /* prevents it from stretching */
+  margin: 0 auto;        /* centers the content */
+  padding: 0 24px;       /* small side breathing room */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 950px) {
+  .content-wrapper {
+    width: 100%;         /* allow full width on smaller screens */
+    max-width: 100%;
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .content-wrapper {
+    padding: 0 20px;     /* tighter padding on mobile */
+  }
+}
+
+
+
+
+/* ===== Navigation ===== */
 .main-nav {
   display: flex;
   align-items: center;
   padding: 16px 24px;
   position: fixed;
-  
+  backdrop-filter: blur(6px); /* slight glass effect for readability */
 }
+
+/* Navigation links */
 .main-nav ul {
   list-style: none;
   display: flex;
   gap: 12px;
-  margin-left: auto;
+  margin: 0;
+  padding: 0;
 }
+
 .main-nav li:first-child {
   font-size: 1.25rem;
   font-weight: 700;
 }
+
 .main-nav a {
   padding: 8px 16px;
   font-size: 0.875rem;
@@ -40,21 +73,36 @@ a {
   border: 1px solid #1a1a1a;
   border-radius: 9999px;
   color: #1a1a1a;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
+
+/* Hover */
 .main-nav a:hover {
   background-color: #1a1a1a;
   color: #ffffff;
+  transform: translateY(2px);
 }
+
+/* Active link (current section) */
 .main-nav a.active {
   background-color: #1a1a1a;
   color: #ffffff;
+  transform: translateY(2px); /* slightly lowered effect */
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* Playground special button (unchanged) */
 .main-nav a.playground {
   background-color: #ff4c4c;
   border-color: #ff4c4c;
   color: #ffffff;
 }
+
+
+
+
+
 
 /* Hero Section */
 .hero {
@@ -93,6 +141,71 @@ a {
   border-color: #0066cc;
 }
 
+
+/* ===== Intro Highlight Box ===== */
+.intro-box {
+  display: inline-block;           /* shrink to text width */
+  background-color: #f9f9f9;       /* soft light background */
+  border: 1px solid #ddd;          /* subtle border */
+  border-radius: 30px;             /* makes the edges semi-circular */
+  padding: 12px 24px;              /* space around text */
+  margin: 20px auto;               /* add some breathing room */
+  text-align: center;              /* keep text centered */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* soft shadow for depth */
+}
+
+.intro-box p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+
+/* LINKS AFTER ABOUT SECTION */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  justify-content: flex-start; /* align left */
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  color: #000;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+  transform: translateY(-1px);
+}
+
+.social-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+
+
+
+
+
+
+
+
+
 /* Section Headings */
 section h2 {
   font-size: 1.5rem;
@@ -113,7 +226,7 @@ section h2 {
 
 /* Tech Stack */
 .tech-stack {
-  padding: 30px 24px;
+  padding: 0px 24px;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -185,7 +298,8 @@ section h2 {
 
 .job {
   border-bottom: 1px solid #e6e6e6;
-  padding: 1px 0;
+  padding: 0px 0;
+  
   
 }
 
@@ -554,6 +668,9 @@ section h2 {
   display: block;
 }
 
+
+
+
 /* Responsive adjustments */
 @media (max-width: 900px) {
   .featured-content {
@@ -566,6 +683,50 @@ section h2 {
     margin-top: 1rem;
   }
 }
+
+
+/* ===== Project Buttons (Website / Source / Demo) ===== */
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.project-btn:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+  transform: translateY(-1px);
+}
+
+
+
+.project-btn img,
+.project-btn .doc-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.project-btn .doc-icon {
+  margin-right: 6px;
+}
+
 
 
 
@@ -591,3 +752,4 @@ footer {
   font-size: 0.875rem;
   color: #999999;
 }
+
