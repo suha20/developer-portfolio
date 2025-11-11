@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Navigation -->
+  <div class="content-wrapper">
+    <!-- Navigation -->
   <nav class="main-nav">
     <ul>
       <li><a href="#hero">Home</a></li>
@@ -19,16 +20,17 @@
     </ul>
   </nav>
 
-  <!-- Hero Section -->
+
+
   <section id="hero" class="hero">
     <h1>hey there, I’m <span>Anindita Suha</span> 👋</h1>
-    <p>Final-year Software Engineering student building intelligent systems for finance, NLP, and distributed computing.</p>
-    <div class="hero-links">
-      <!-- <a href="Anindita_Suha_-_.pdf" target="_blank">resume</a> -->
-      <a href="https://github.com/suha20" target="_blank">github</a>
-      <a href="https://www.linkedin.com/in/anindita-suha-55a99824a" target="_blank">linkedin</a>
+    <div class="intro-box">
+      <p>I like to create softwares, and love to solve math problems! And I play guitar when I have time.</p>
     </div>
+    
   </section>
+
+
 
   <!-- About Section -->
   <section id="about" class="about">
@@ -37,7 +39,23 @@
     <p><strong>Education:</strong> First Class, Software Engineering, University of Greenwich, London (2022–2025)</p>
     <p><strong>Location:</strong> London, United Kingdom<br>
     <strong>Email:</strong> <a href="mailto:aninditasuha17@gmail.com">aninditasuha17@gmail.com</a><br>
-    
+
+
+
+    <div class="social-links">
+     <a href="https://github.com/suha20" target="_blank" class="social-btn">
+       <img src="logos/github.png" alt="GitHub logo" class="social-icon"> GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/anindita-suha-55a99824a/" target="_blank" class="social-btn">
+       <img src="logos/linkedin.png" alt="LinkedIn logo" class="social-icon"> LinkedIn
+     </a>
+    <a href="Anindita_Suha_-_.pdf" target="_blank" class="social-btn">
+    📄 Resume
+     </a>
+  </div>
+
+
+
   </section>
 
   <!-- Tech Stack Section -->
@@ -64,6 +82,9 @@
       <p>Agile/Scrum, OOP, Microservices Architectures</p>
     </div>
   </section>
+
+
+
 
 
   <!-- Experience Section -->
@@ -234,6 +255,14 @@
 
 
 
+
+
+
+
+
+
+
+
   <!-- Projects Section -->
   <section id="projects" class="projects">
     <h2>projects</h2>
@@ -257,7 +286,18 @@
             Your browser does not support HTML5 video.
           </video>
         </div>
+        <div class="project-links">
+        <a href="https://github.com/suha20/sentitracker" target="_blank" class="project-btn">
+          <img src="logos/github.png" alt="GitHub logo" class="github-icon">Source</a>
+          <a href="https://drive.google.com/file/d/1BTHS8xEi0nXXwbs2ggXPGptf-PVroCkM/view?usp=drive_link" target="_blank" class="project-btn">
+    📄 Documentation
+          </a>
+        
+        </div>
       </div>
+
+
+  
 
 
       </div>
@@ -271,13 +311,20 @@
     Your browser does not support HTML5 video.
   </video>
 </div>
-      </div>
+<!-- 🔗 GitHub Source Button -->
+  <div class="project-links">
+    <a href="https://github.com/suha20/AI-based-Connect-Four-Game" target="_blank" class="project-btn">
+      <img src="logos/github.png" alt="GitHub logo" class="github-icon"> Source
+    </a>
+  </div>
+</div>
+      
 
 
 
 
       <div class="project-item">
-        <h3>Housing & Survival Prediction App</h3>
+        <h3>European Telecoms Network App</h3>
         <span>Feb 2025 – Mar 2025</span>
         <p>The European Telecoms Network App is a Java/Kotlin GUI application that computes the most cost-efficient way to connect all European capital cities using a Minimum Spanning Tree (MST) approach. By modelling each capital as a graph node and the distances between them as weighted edges, the app applies Kruskal’s algorithm to determine optimal network</p>
         <p><strong>Stack:</strong> Java,Kotlin</p>
@@ -285,6 +332,12 @@
     <source src="ETN.mov" type="video/mp4">
     Your browser does not support HTML5 video.
   </video></div>
+  <!-- 🔗 GitHub Source Button -->
+  <div class="project-links">
+    <a href="https://github.com/suha20/European-Telecoms-Network-App" target="_blank" class="project-btn">
+      <img src="logos/github.png" alt="GitHub logo" class="github-icon"> Source
+    </a>
+  </div>
       </div>
 
 
@@ -293,6 +346,13 @@
         <span>Sep 2023 – Nov 2023</span>
         <p>Implemented Dijkstra’s algorithm on a 270-station graph for London Underground route optimization. By modelling each station as a node and each track segment as a weighted edge, the app uses Dijkstra’s algorithm to calculate the shortest travel time between any two stations in under 100 milliseconds.</p>
         <p><strong>Stack:</strong> Python, NumPy, Graph Algorithms (Dijkstra, Kruskal, Johnson), Jupyter Notebook</p>
+        <!-- 🔗 GitHub Source Button -->
+  <div class="project-links">
+    <a href="https://github.com/suha20/citymapper" target="_blank" class="project-btn">
+      <img src="logos/github.png" alt="GitHub logo" class="github-icon"> Source
+    </a>
+  </div>
+</div>
       </div>
     </div>
   </section>
@@ -324,6 +384,6 @@
     });
   });
 </script>
-
+  </div>
 </body>
 </html>
