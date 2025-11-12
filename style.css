@@ -101,9 +101,6 @@ a {
 
 
 
-
-
-
 /* Hero Section */
 .hero {
   text-align: center;
@@ -202,23 +199,16 @@ a {
 
 
 
-
-
-
-
 /* Section Headings */
-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 16px;
-  text-transform: lowercase;
-}
-
 /* About Section */
 .about {
   padding: 60px 24px;
+  padding-top: 0px;
+  padding-bottom: 20px;
   max-width: 800px;
   margin: 0 auto;
 }
+
 .about p {
   margin-bottom: 12px;
   color: #333333;
@@ -229,6 +219,10 @@ section h2 {
   padding: 0px 24px;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.tech-stack h2{
+  font-size: 1.2rem;
 }
 .stack-category {
   margin-bottom: 24px;
@@ -250,11 +244,6 @@ section h2 {
 }
 
 
-
-
-
-
-
 /* Experience Section */
 .experience {
   /*padding: 60px 24px;*/
@@ -263,7 +252,7 @@ section h2 {
   margin: 0 auto;
 }
 .experience .job {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   
 }
 .experience h3 {
@@ -279,10 +268,12 @@ section h2 {
   margin-top: 12px;
   list-style: disc;
   margin-left: 20px;
-  
+  font-size: 0.9rem;
   color: #333333;
 }
-
+.experience p {
+  color: #000000;
+}
 .company {
       display: flex;
       align-items: center;
@@ -545,17 +536,7 @@ section h2 {
 
 
 
-
-
-
-
-
-
-
-
 /* Projects Section */
-
-
 .projects {
   padding: 60px 24px;
   background-color: #fafafa;
@@ -673,7 +654,6 @@ section h2 {
 
 
 
-
 /* Responsive adjustments */
 @media (max-width: 900px) {
   .featured-content {
@@ -748,11 +728,37 @@ section h2 {
   gap: 16px;
 }
 
+
+
 /* Footer */
 footer {
   text-align: center;
   padding: 24px;
   font-size: 0.875rem;
   color: #999999;
+}
+
+
+
+/* ===== Compact Section Spacing ===== */
+
+.tech-stack,
+.experience,
+.projects,
+.contact {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+section h2 {
+  margin-bottom: 10px; /* tighten heading spacing */
+}
+
+.about h2,
+.experience h2,
+.projects h2,
+.contact h2 {
+  font-size: 1.25rem; /* no space */
+  margin-bottom: 12px;
 }
 
