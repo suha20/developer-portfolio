@@ -1,0 +1,792 @@
+/* Base Reset & Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+/* ===== Fixed Centered Page Wrapper ===== */
+.content-wrapper {
+  width: 715px;          /* fixed width for desktop */
+  max-width: 715px;      /* prevents it from stretching */
+  margin: 0 auto;        /* centers the content */
+  padding: 0 20px;       /* small side breathing room */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 950px) {
+  .content-wrapper {
+    width: 100%;         /* allow full width on smaller screens */
+    max-width: 100%;
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .content-wrapper {
+    padding: 0 20px;     /* tighter padding on mobile */
+  }
+}
+
+
+
+
+/* ===== Navigation ===== */
+.main-nav {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  position: fixed;
+  z-index: 1000;
+  backdrop-filter: blur(6px); /* slight glass effect for readability */
+}
+
+/* Navigation links */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li:first-child {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.main-nav a {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  text-transform: lowercase;
+  border: 1px solid #1a1a1a;
+  border-radius: 9999px;
+  color: #1a1a1a;
+  background-color: transparent;
+  transition: background-color 0.25s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+/* Pill boxes become opaque when page is scrolled — content can't bleed through */
+.main-nav.scrolled a {
+  background-color: #ffffff;
+}
+
+/* Hover */
+.main-nav a:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  transform: translateY(2px);
+}
+
+/* Active link (current section) */
+.main-nav a.active {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  transform: translateY(2px); /* slightly lowered effect */
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Playground special button (unchanged) */
+.main-nav a.playground {
+  background-color: #ff4c4c;
+  border-color: #ff4c4c;
+  color: #ffffff;
+}
+
+
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 24px;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+.hero h1 span {
+  color: #ff4c4c;
+}
+.hero p {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #555555;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-links {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.hero-links a {
+  font-size: 0.875rem;
+  text-transform: lowercase;
+  color: #0066cc;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.hero-links a:hover {
+  border-color: #0066cc;
+}
+
+
+/* ===== Intro Highlight Box ===== */
+.intro-box {
+  display: inline-block;           /* shrink to text width */
+  background-color: #f9f9f9;       /* soft light background */
+  border: 1px solid #ddd;          /* subtle border */
+  border-radius: 30px;             /* makes the edges semi-circular */
+  padding: 12px 24px;              /* space around text */
+  margin: 20px auto;               /* add some breathing room */
+  text-align: center;              /* keep text centered */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* soft shadow for depth */
+}
+
+.intro-box p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+
+/* LINKS AFTER ABOUT SECTION */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  justify-content: flex-start; /* align left */
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  color: #000;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+  transform: translateY(-1px);
+}
+
+.social-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+
+
+
+
+
+/* Section Headings */
+/* About Section */
+.about {
+  padding: 60px 24px;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about p {
+  margin-bottom: 12px;
+  color: #333333;
+}
+
+/* Tech Stack */
+.tech-stack {
+  padding: 0px 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tech-stack h2{
+  font-size: 1.2rem;
+}
+.stack-category {
+  margin-bottom: 24px;
+}
+.stack-category h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #444242;
+}
+.stack-category p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #444444;
+  font-size: 0.9rem;
+}
+.stack-category p::before {
+  content: '';
+}
+
+
+/* Experience Section */
+.experience {
+  /*padding: 60px 24px;*/
+  padding: 60px 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.experience .job {
+  margin-bottom: 20px;
+  
+}
+.experience h3 {
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+  
+}
+.experience span {
+  font-size: 0.875rem;
+  color: #777777;
+}
+.experience ul {
+  margin-top: 12px;
+  list-style: disc;
+  margin-left: 20px;
+  font-size: 0.9rem;
+  color: #333333;
+}
+.experience p {
+  color: #000000;
+}
+.company {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 8px 0;
+    }
+    .company-logo {
+      width: 40px;
+      height: auto;
+      object-fit: contain;
+    }
+
+
+    /* ===== Enhanced LinkedIn-Style Experience Layout ===== */
+
+.job {
+  border-bottom: 1px solid #e6e6e6;
+  padding: 0px 0;
+  
+  
+}
+
+.job:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.job-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.company-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 50%; /* optional - makes it circular */
+}
+
+.company-name {
+  font-weight: 600;
+  color: #222;
+}
+
+.job-dates {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.job-summary {
+  margin: 10px 0;
+  color: #333;
+}
+
+.job ul {
+  margin-left: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+
+
+/* Responsive fix for mobile */
+@media (max-width: 700px) {
+  .job-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .job-dates {
+    margin-top: 4px;
+  }
+}
+
+
+/* DROPDOWN ADDED */
+
+/* Hide native triangle */
+.job details summary::-webkit-details-marker {
+  display: none;
+}
+.job details summary::marker {
+  display: none;
+}
+
+/* Dropdown base */
+.job details {
+  border-bottom: 1px solid #e6e6e6;
+  padding: 20px 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.job details[open] {
+  background-color: #fafafa;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.job details summary {
+  list-style: none;
+  outline: none;
+}
+
+.job details summary:hover {
+  background-color: #f7f7f7;
+  border-radius: 6px;
+}
+
+.job-summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.job-summary-header h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.job-summary-line {
+  color: #333;
+  font-size: 0.95rem;
+  margin-top: 6px;
+}
+
+
+
+.job-details ul {
+  margin-left: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Tech tags remain visible */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.tech-tags span {
+  background-color: #f4f4f4;
+  color: #333;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.tech-tags span:hover {
+  background-color: #ff4c4c;
+  color: #fff;
+}
+
+/* Simple open/close animation */
+.job details[open] .job-details {
+  animation: expand 0.3s ease-in-out;
+}
+@keyframes expand {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional dropdown arrow */
+.job details summary::after {
+  content: '▾';
+  font-size: 1rem;
+  color: #888;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+.job details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+
+
+
+/* ===== Controlled Dropdown Arrow Toggle (Arrow beside Role Title) ===== */
+
+.job-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.job-title-row h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.toggle-details {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #888;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.toggle-details:hover {
+  color: #ff4c4c;
+}
+
+.toggle-details.open {
+  transform: rotate(180deg);
+  color: #ff4c4c;
+}
+
+.job-details {
+  display: none;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #ddd;
+}
+
+.job-details.open {
+  display: block;
+  animation: expandJob 0.3s ease-in-out;
+}
+
+@keyframes expandJob {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+/* Projects Section */
+.projects {
+  padding: 60px 24px;
+  background-color: #fafafa;
+  max-width: 800px;
+  margin: 0 auto;
+  
+}
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.project-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px;
+}
+.project-item h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.project-item span {
+  display: block;
+  font-size: 0.875rem;
+  color: #777777;
+  margin-bottom: 16px;
+}
+.project-item p {
+  margin-bottom: 12px;
+  color: #333333;
+  font-size: 0.9rem;
+}
+
+
+
+.video-placeholder {
+  position: relative;
+  width: 100%;
+  padding-top: 85.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #000; /* fallback background */
+}
+
+.video-placeholder video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the box without distortion */
+  border-radius: 8px;
+}
+
+
+
+/* Featured SentiTracker Styling */
+
+.featured-project {
+  grid-column: 1 / -1;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+.featured-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.featured-text {
+  flex: 1 1 45%;
+}
+
+.featured-text h3 {
+  font-size: 1rem;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+.featured-text span {
+  display: block;
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.featured-text p {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.featured-video {
+  flex: 1 1 62%;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.featured-video video {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .featured-content {
+    flex-direction: column;
+  }
+  .featured-text, .featured-video {
+    flex: 1 1 100%;
+  }
+  .featured-video {
+    margin-top: 1rem;
+  }
+}
+
+
+/* ===== Project Buttons (Website / Source / Demo) ===== */
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.project-btn:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+  transform: translateY(-1px);
+}
+
+
+
+.project-btn img,
+.project-btn .doc-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.project-btn .doc-icon {
+  margin-right: 6px;
+}
+
+
+
+
+/* Contact Section */
+.contact {
+  padding: 60px 24px;
+  text-align: center;
+}
+.contact a {
+  color: #0066cc;
+}
+.contact-links {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.875rem;
+  color: #999999;
+}
+
+
+
+/* ===== Compact Section Spacing ===== */
+
+.tech-stack,
+.experience,
+.projects,
+.contact {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+section h2 {
+  margin-bottom: 10px; /* tighten heading spacing */
+}
+
+.about h2,
+.experience h2,
+.projects h2,
+.contact h2 {
+  font-size: 1.25rem; /* no space */
+  margin-bottom: 12px;
+}
+
+
+/* ===== Scroll Reveal ===== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+
