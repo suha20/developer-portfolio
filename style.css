@@ -4,11 +4,105 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* ===== Design Tokens (light theme = current values, unchanged) ===== */
+:root {
+  /* surfaces */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #f9f9f9;
+  --surface-muted: #fafafa;
+  --surface-hover: #f7f7f7;
+  --chip-bg: #f4f4f4;
+
+  /* text */
+  --text: #1a1a1a;
+  --text-heading: #222;
+  --text-strong: #000;
+  --text-body: #333;
+  --text-body-2: #444444;
+  --text-heading-2: #444242;
+  --text-soft: #111;
+  --text-muted: #777;
+  --text-muted-2: #555555;
+  --text-faint: #888;
+  --text-footer: #999999;
+
+  /* inverse / on-dark text (white on dark pills & hovers) */
+  --on-dark: #ffffff;
+  --invert-bg: #000;
+  --invert-border: #000;
+
+  /* pills (nav active/hover) */
+  --pill-bg: #1a1a1a;
+  --nav-border: #1a1a1a;
+
+  /* borders */
+  --border: #e0e0e0;
+  --border-soft: #e6e6e6;
+  --border-hairline: #ddd;
+  --border-input: #ccc;
+
+  /* brand */
+  --accent: #ff4c4c;
+  --accent-hover: #ff4c4c;
+  --link: #0066cc;
+
+  /* elevation */
+  --shadow-card: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Dark theme = token swap ===== */
+:root[data-theme="dark"] {
+  --bg: #0e0f13;
+  --surface: #16181d;
+  --surface-soft: #1a1d24;
+  --surface-muted: #121419;
+  --surface-hover: #1c1f27;
+  --chip-bg: #23262d;
+
+  --text: #f4f4f6;
+  --text-heading: #f4f4f6;
+  --text-strong: #ffffff;
+  --text-body: #c7cad1;
+  --text-body-2: #c7cad1;
+  --text-heading-2: #e5e7eb;
+  --text-soft: #f4f4f6;
+  --text-muted: #9aa0ab;
+  --text-muted-2: #9aa0ab;
+  --text-faint: #8b909a;
+  --text-footer: #7a7f8a;
+
+  /* on a light pill / light hover, text flips dark */
+  --on-dark: #0e0f13;
+  --invert-bg: #f4f4f6;
+  --invert-border: #f4f4f6;
+
+  --pill-bg: #f4f4f6;
+  --nav-border: rgba(255, 255, 255, 0.22);
+
+  /* nav pills: elevated dark (lighter than the page bg) so they read as buttons */
+  --nav-pill-bg: #202430;
+  --nav-pill-active-bg: #2b3040;
+  --nav-pill-text: #f4f4f6;
+
+  --border: rgba(255, 255, 255, 0.09);
+  --border-soft: rgba(255, 255, 255, 0.07);
+  --border-hairline: rgba(255, 255, 255, 0.10);
+  --border-input: rgba(255, 255, 255, 0.14);
+
+  --accent: #ff5d5d;
+  --accent-hover: #ff7676;
+  --link: #5aa9ff;
+
+  --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #1a1a1a;
-  background-color: #ffffff;
+  color: var(--text);
+  background-color: var(--bg);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 a {
   text-decoration: none;
@@ -71,38 +165,38 @@ a {
   padding: 8px 16px;
   font-size: 0.875rem;
   text-transform: lowercase;
-  border: 1px solid #1a1a1a;
+  border: 1px solid var(--nav-border);
   border-radius: 9999px;
-  color: #1a1a1a;
+  color: var(--text);
   background-color: transparent;
   transition: background-color 0.25s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 /* Pill boxes become opaque when page is scrolled — content can't bleed through */
 .main-nav.scrolled a {
-  background-color: #ffffff;
+  background-color: var(--surface);
 }
 
 /* Hover */
 .main-nav a:hover {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--pill-bg);
+  color: var(--on-dark);
   transform: translateY(2px);
 }
 
 /* Active link (current section) */
 .main-nav a.active {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--pill-bg);
+  color: var(--on-dark);
   transform: translateY(2px); /* slightly lowered effect */
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Playground special button (unchanged) */
 .main-nav a.playground {
-  background-color: #ff4c4c;
-  border-color: #ff4c4c;
-  color: #ffffff;
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-dark);
 }
 
 
@@ -117,12 +211,12 @@ a {
   line-height: 1.2;
 }
 .hero h1 span {
-  color: #ff4c4c;
+  color: var(--accent);
 }
 .hero p {
   margin-top: 12px;
   font-size: 1rem;
-  color: #555555;
+  color: var(--text-muted-2);
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -136,20 +230,20 @@ a {
 .hero-links a {
   font-size: 0.875rem;
   text-transform: lowercase;
-  color: #0066cc;
+  color: var(--link);
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
 }
 .hero-links a:hover {
-  border-color: #0066cc;
+  border-color: var(--link);
 }
 
 
 /* ===== Intro Highlight Box ===== */
 .intro-box {
   display: inline-block;           /* shrink to text width */
-  background-color: #f9f9f9;       /* soft light background */
-  border: 1px solid #ddd;          /* subtle border */
+  background-color: var(--surface-soft);       /* soft light background */
+  border: 1px solid var(--border-hairline);          /* subtle border */
   border-radius: 30px;             /* makes the edges semi-circular */
   padding: 12px 24px;              /* space around text */
   margin: 20px auto;               /* add some breathing room */
@@ -160,7 +254,7 @@ a {
 .intro-box p {
   margin: 0;
   font-size: 0.9rem;
-  color: #333;
+  color: var(--text-body);
 }
 
 
@@ -178,19 +272,19 @@ a {
   align-items: center;
   gap: 5px;
   padding: 4px 10px;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: var(--surface);
+  border: 1px solid var(--border-input);
   border-radius: 16px;
   font-size: 0.8rem;
-  color: #000;
+  color: var(--text-strong);
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .social-btn:hover {
-  background-color: #000;
-  color: #fff;
-  border-color: #000;
+  background-color: var(--invert-bg);
+  color: var(--on-dark);
+  border-color: var(--invert-border);
   transform: translateY(-1px);
 }
 
@@ -217,7 +311,7 @@ a {
 
 .about p {
   margin-bottom: 12px;
-  color: #333333;
+  color: var(--text-body);
 }
 
 /* Tech Stack */
@@ -236,13 +330,13 @@ a {
 .stack-category h3 {
   font-size: 1rem;
   margin-bottom: 8px;
-  color: #444242;
+  color: var(--text-heading-2);
 }
 .stack-category p {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  color: #444444;
+  color: var(--text-body-2);
   font-size: 0.9rem;
 }
 .stack-category p::before {
@@ -268,17 +362,17 @@ a {
 }
 .experience span {
   font-size: 0.875rem;
-  color: #777777;
+  color: var(--text-muted);
 }
 .experience ul {
   margin-top: 12px;
   list-style: disc;
   margin-left: 20px;
   font-size: 0.9rem;
-  color: #333333;
+  color: var(--text-body);
 }
 .experience p {
-  color: #000000;
+  color: var(--text-strong);
 }
 .company {
       display: flex;
@@ -296,7 +390,7 @@ a {
     /* ===== Enhanced LinkedIn-Style Experience Layout ===== */
 
 .job {
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid var(--border-soft);
   padding: 0px 0;
   
   
@@ -335,22 +429,22 @@ a {
 
 .company-name {
   font-weight: 600;
-  color: #222;
+  color: var(--text-heading);
 }
 
 .job-dates {
   font-size: 0.9rem;
-  color: #777;
+  color: var(--text-muted);
 }
 
 .job-summary {
   margin: 10px 0;
-  color: #333;
+  color: var(--text-body);
 }
 
 .job ul {
   margin-left: 1.2rem;
-  color: #333;
+  color: var(--text-body);
   line-height: 1.6;
 }
 
@@ -380,14 +474,14 @@ a {
 
 /* Dropdown base */
 .job details {
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid var(--border-soft);
   padding: 20px 0;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .job details[open] {
-  background-color: #fafafa;
+  background-color: var(--surface-muted);
   border-radius: 8px;
   padding: 20px;
 }
@@ -398,7 +492,7 @@ a {
 }
 
 .job details summary:hover {
-  background-color: #f7f7f7;
+  background-color: var(--surface-hover);
   border-radius: 6px;
 }
 
@@ -415,7 +509,7 @@ a {
 }
 
 .job-summary-line {
-  color: #333;
+  color: var(--text-body);
   font-size: 0.95rem;
   margin-top: 6px;
 }
@@ -424,7 +518,7 @@ a {
 
 .job-details ul {
   margin-left: 1.2rem;
-  color: #333;
+  color: var(--text-body);
   line-height: 1.6;
 }
 
@@ -436,8 +530,8 @@ a {
   margin-top: 10px;
 }
 .tech-tags span {
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: var(--chip-bg);
+  color: var(--text-body);
   font-size: 0.8rem;
   padding: 5px 10px;
   border-radius: 20px;
@@ -445,8 +539,8 @@ a {
   transition: all 0.2s ease;
 }
 .tech-tags span:hover {
-  background-color: #ff4c4c;
-  color: #fff;
+  background-color: var(--accent);
+  color: var(--on-dark);
 }
 
 /* Simple open/close animation */
@@ -468,7 +562,7 @@ a {
 .job details summary::after {
   content: '▾';
   font-size: 1rem;
-  color: #888;
+  color: var(--text-faint);
   margin-left: 8px;
   transition: transform 0.2s ease;
 }
@@ -491,14 +585,14 @@ a {
   margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #222;
+  color: var(--text-heading);
 }
 
 .toggle-details {
   background: none;
   border: none;
   font-size: 1rem;
-  color: #888;
+  color: #5aa9ff;
   cursor: pointer;
   padding: 0;
   margin: 0;
@@ -507,19 +601,19 @@ a {
 }
 
 .toggle-details:hover {
-  color: #ff4c4c;
+  color: #7cc5ff;
 }
 
 .toggle-details.open {
   transform: rotate(180deg);
-  color: #ff4c4c;
+  color: #7cc5ff;
 }
 
 .job-details {
   display: none;
   margin-top: 10px;
   padding-top: 10px;
-  border-top: 1px dashed #ddd;
+  border-top: 1px dashed var(--border-hairline);
 }
 
 .job-details.open {
@@ -545,7 +639,7 @@ a {
 /* Projects Section */
 .projects {
   padding: 60px 24px;
-  background-color: #fafafa;
+  background-color: var(--surface-muted);
   max-width: 800px;
   margin: 0 auto;
   
@@ -558,8 +652,8 @@ a {
   margin: 0 auto;
 }
 .project-item {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 24px;
 }
@@ -570,12 +664,12 @@ a {
 .project-item span {
   display: block;
   font-size: 0.875rem;
-  color: #777777;
+  color: var(--text-muted);
   margin-bottom: 16px;
 }
 .project-item p {
   margin-bottom: 12px;
-  color: #333333;
+  color: var(--text-body);
   font-size: 0.9rem;
 }
 
@@ -606,10 +700,10 @@ a {
 
 .featured-project {
   grid-column: 1 / -1;
-  background-color: #ffffff;
+  background-color: var(--surface);
   border-radius: 8px;
   padding: 2rem;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-card);
 }
 
 .featured-content {
@@ -625,20 +719,20 @@ a {
 
 .featured-text h3 {
   font-size: 1rem;
-  color: #111;
+  color: var(--text-soft);
   margin-bottom: 0.5rem;
 }
 
 .featured-text span {
   display: block;
   font-size: 0.9rem;
-  color: #777;
+  color: var(--text-muted);
   margin-bottom: 1rem;
 }
 
 .featured-text p {
   font-size: 0.9rem;
-  color: #333;
+  color: var(--text-body);
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -688,18 +782,18 @@ a {
   justify-content: center;
   padding: 6px 14px;
   font-size: 0.85rem;
-  color: #000;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  color: var(--text-strong);
+  background-color: var(--surface);
+  border: 1px solid var(--border-input);
   border-radius: 20px;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .project-btn:hover {
-  background-color: #000;
-  color: #fff;
-  border-color: #000;
+  background-color: var(--invert-bg);
+  color: var(--on-dark);
+  border-color: var(--invert-border);
   transform: translateY(-1px);
 }
 
@@ -725,7 +819,7 @@ a {
   text-align: center;
 }
 .contact a {
-  color: #0066cc;
+  color: var(--link);
 }
 .contact-links {
   margin-top: 16px;
@@ -741,7 +835,7 @@ footer {
   text-align: center;
   padding: 24px;
   font-size: 0.875rem;
-  color: #999999;
+  color: var(--text-footer);
 }
 
 
@@ -754,6 +848,153 @@ footer {
 .contact {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+
+
+/* ===== Theme Toggle Button (fixed top-right) ===== */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 24px;
+  z-index: 1100;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  border: 1px solid var(--nav-border);
+  border-radius: 9999px;
+  background-color: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.25s ease, color 0.2s ease,
+              transform 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(1px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .theme-toggle {
+    top: 12px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}
+
+/* Smooth surface transitions when switching themes */
+.main-nav a,
+.project-item,
+.featured-project,
+.intro-box,
+.social-btn,
+.project-btn,
+.tech-tags span,
+.job-details.open {
+  transition: background-color 0.3s ease, color 0.2s ease,
+              border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* ===== Dark Theme: strong contrast on the key elements ===== */
+
+/* Nav pills: solid off-white so they pop against the dark page */
+:root[data-theme="dark"] .main-nav a,
+:root[data-theme="dark"] .main-nav.scrolled a {
+  background-color: var(--nav-pill-bg);
+  color: var(--nav-pill-text);
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+:root[data-theme="dark"] .main-nav a:hover,
+:root[data-theme="dark"] .main-nav a.active {
+  background-color: var(--nav-pill-active-bg);
+  color: var(--nav-pill-text);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Section headings in beige (dark theme only) */
+:root[data-theme="dark"] .about h2,
+:root[data-theme="dark"] .tech-stack h2,
+:root[data-theme="dark"] .experience h2,
+:root[data-theme="dark"] .projects h2,
+:root[data-theme="dark"] .contact h2 {
+  color: #e8dcc4;
+}
+
+/* Projects become the hero: accent-tinted glow + elevation */
+:root[data-theme="dark"] .featured-project {
+  box-shadow: 0 0 0 1px rgba(255, 93, 93, 0.25), 0 12px 36px rgba(0, 0, 0, 0.6);
+}
+
+:root[data-theme="dark"] .project-item {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* Project buttons pop with accent fill */
+:root[data-theme="dark"] .project-btn {
+  background-color: var(--surface);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--text);
+}
+
+:root[data-theme="dark"] .project-btn:hover {
+  background-color: var(--surface-hover);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+/* Projects section sits slightly recessed from the page */
+:root[data-theme="dark"] .projects {
+  background-color: var(--surface-muted);
+  border-radius: 12px;
+}
+
+/* Open job dropdown: elevated surface + accent left-border to signal "active" */
+:root[data-theme="dark"] .job-details.open {
+  background-color: var(--surface-hover);
+  border-top: none;
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+/* Soften shadows that were tuned for light backgrounds */
+:root[data-theme="dark"] .intro-box {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+:root[data-theme="dark"] .main-nav a.active {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .theme-toggle,
+  .main-nav a,
+  .project-item,
+  .featured-project,
+  .intro-box,
+  .social-btn,
+  .project-btn,
+  .tech-tags span,
+  .job-details.open {
+    transition: none;
+  }
 }
 
 section h2 {

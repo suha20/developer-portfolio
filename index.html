@@ -5,9 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anindita Suha | Software Engineer Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <script>
+    // Set theme before paint to avoid a flash of the wrong theme
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var theme = saved
+          || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <div class="content-wrapper">
+    <!-- Theme toggle -->
+    <button id="theme-toggle" class="theme-toggle" type="button"
+            aria-label="Toggle dark mode" aria-pressed="false">
+      <span class="theme-toggle-icon">☾</span>
+    </button>
+
     <!-- Navigation -->
 
   <nav class="main-nav">
@@ -25,9 +42,10 @@
 
 
   <section id="hero" class="hero">
-    <h1>hey there, I’m <span>Anindita Suha</span> 👋</h1>
+    <h1>hey there, I’m <span>Suha</span> 👋</h1>
     <div class="intro-box">
-      <p>I like to stay up at night and work on what i like</p>
+      <p>I build intelligent systems, automate the boring stuff, and love cracking problems that seem
+        impossible.</p>
     </div>
     
   </section>
@@ -307,7 +325,7 @@
       <div class="featured-content">
         <div class="featured-text">
           <h3>SpeakCoach</h3>
-          <span>Feb 2026 – Sept 2026</span>
+          <span>2025 – Present</span>
           <p>
             A full-stack Next.js app for practicing high-stakes conversations — interviews, investor
             pitches, and tough workplace talks like salary negotiations. Users describe a scenario, and
@@ -446,6 +464,27 @@
 
 
   <script>
+  // ── Theme toggle ──
+  (function () {
+    const root = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    if (!toggle) return;
+    const icon = toggle.querySelector('.theme-toggle-icon');
+    const apply = (theme) => {
+      root.setAttribute('data-theme', theme);
+      const isDark = theme === 'dark';
+      toggle.setAttribute('aria-pressed', String(isDark));
+      if (icon) icon.textContent = isDark ? '☀' : '☾';
+    };
+    // Sync icon/state with the theme already set in <head>
+    apply(root.getAttribute('data-theme') || 'light');
+    toggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+
   // ── Job toggle ──
   document.querySelectorAll('.toggle-details').forEach(button => {
     button.addEventListener('click', () => {
